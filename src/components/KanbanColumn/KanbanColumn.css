@@ -1,0 +1,30 @@
+.column {
+    background-color: var(--background-color-lvl-2);
+    padding: var(--padding-xl);
+    border-radius: var(--border-radius-m);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xl);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    color: var(--color-text-disable);
+    font-size: var(--font-size-xl);
+}
+
+.button-add {
+    
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xl);
+}

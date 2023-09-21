@@ -1,0 +1,35 @@
+{
+    "ToDo": [
+        {
+            "title": "Todo 1"
+        },
+        {
+            "title": "Todo 2"
+        },
+        {
+            "title": "Todo 3"
+        },
+        {
+            "title": "Todo 4"
+        }
+    ],
+    "InProgress": [
+        {
+            "title": "InProgress 1"
+        },
+        {
+            "title": "InProgress 2"
+        },
+        {
+            "title": "InProgress 3"
+        }
+    ],
+    "Done": [
+        {
+            "title": "Done 1"
+        },
+        {
+            "title": "Done 2"
+        }
+    ]
+}

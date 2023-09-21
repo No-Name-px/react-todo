@@ -1,0 +1,19 @@
+.wrapper {
+    cursor: pointer;
+}
+
+.button-reset {
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.button {
+    cursor: pointer;
+    color: var(--color-text-disable);
+    transition: all .1s ease-in-out;
+}
+
+.button:hover {
+    color: var(--color-text-active);
+}
