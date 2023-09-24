@@ -12,8 +12,35 @@
     cursor: pointer;
     color: var(--color-text-disable);
     transition: all .1s ease-in-out;
+    border-radius: var(--border-radius-s);
+    font-size: 1rem;
 }
 
-.button:hover {
+.button[disabled='false']:hover {
     color: var(--color-text-active);
+}
+
+.button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.button_size_s {
+    padding: var(--padding-m) calc(var(--padding-s) * 2);
+}
+
+.button_size_m {
+    padding: var(--padding-m) calc(var(--padding-m) * 4);
+}
+
+.button_size_l {
+    padding: var(--padding-m) calc(var(--padding-l) * 4);
+}
+
+.button_type_fill {
+    background-color: var(--color-button-default);
+}
+
+.button_type_default {
+    
 }

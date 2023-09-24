@@ -10,7 +10,10 @@
     --margin-l: 8px;
     --margin-xl: 16px;
 
+    --border-radius-s: 8px;
     --border-radius-m: 12px;
+    --border-radius-l: 16px;
+    --border-radius-xl: 20px;
 
     --color-text-active: #FFFFFF;
     --color-text-disable: rgba(255, 255, 255, 0.5);
@@ -44,4 +47,17 @@ html, body, #root {
     width: 100%;
     color: var(--color-text-active);
     font-size: var(--font-size-m);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--background-color-lvl-1);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--background-color-lvl-2);
 }

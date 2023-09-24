@@ -1,0 +1,31 @@
+.input {
+    color: var(--color-text-disable);
+    transition: all .1s ease-in-out;
+    border-radius: var(--border-radius-s);
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.input_type_fill {
+    background-color: var(--color-button-default);
+}
+
+.input_type_default {
+    
+}
+
+.input_size_s {
+    width: 100px;
+    padding: var(--padding-m) calc(var(--padding-s) * 2);
+}
+
+.input_size_m {
+    width: 200px;
+    padding: var(--padding-m) calc(var(--padding-m) * 4);
+}
+
+.input_size_l {
+    width: 400px;
+    padding: var(--padding-m) calc(var(--padding-l) * 4);
+}
