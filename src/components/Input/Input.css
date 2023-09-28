@@ -17,15 +17,15 @@
 
 .input_size_s {
     width: 100px;
-    padding: var(--padding-m) calc(var(--padding-s) * 2);
+    padding: var(--padding-m) calc(var(--padding-m) * 1);
 }
 
 .input_size_m {
     width: 200px;
-    padding: var(--padding-m) calc(var(--padding-m) * 4);
+    padding: var(--padding-m) calc(var(--padding-m) * 2);
 }
 
 .input_size_l {
     width: 400px;
-    padding: var(--padding-m) calc(var(--padding-l) * 4);
+    padding: var(--padding-m) calc(var(--padding-m) * 3);
 }

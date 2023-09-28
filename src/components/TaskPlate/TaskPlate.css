@@ -1,4 +1,5 @@
 .plate {
+    cursor: grab;
     padding: var(--padding-xl);
     border-radius: var(--border-radius-m);
     background-color: var(--background-color-lvl-3);

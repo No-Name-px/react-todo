@@ -1,11 +1,28 @@
 import React from 'react';
 import './TaskPlate.css';
+import { Task } from '../../types';
 
 interface Props {
-    title: string;
+    task: Task;
+    onDragStart: (title: string) => void;
+    // onDragEnd: (title: string) => void;
 }
 
 export default function TaskPlate(props: Props) {
-    const { title } = props;
-    return <div className="plate">{title}</div>;
+    const { task, onDragStart } = props;
+
+    const dragStartHandler = () => {
+        onDragStart(task.title);
+    };
+
+    // const dragEndHandler = (e: React.DragEvent<HTMLElement>) => {
+    //     e.preventDefault();
+    //     onDragEnd(task.title);
+    // };
+
+    return (
+        <div className="plate" onDragStart={dragStartHandler} draggable>
+            {task.title}
+        </div>
+    );
 }

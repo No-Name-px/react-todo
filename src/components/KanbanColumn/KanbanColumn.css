@@ -24,7 +24,15 @@
 }
 
 .tasks {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: var(--margin-xl);
+    border-radius: var(--border-radius-s);
+    height: 100%;
+}
+
+.column.drag-active .tasks {
+    border: var(--color-text-disable) 4px dotted;
+    background: var(--background-color-lvl-3);
 }

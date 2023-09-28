@@ -3,6 +3,7 @@ import { InputSize, InputType } from '../../types';
 import './Input.css';
 
 interface Props {
+    value: string;
     placeholder?: string;
     type?: InputType;
     size?: InputSize;
@@ -10,7 +11,13 @@ interface Props {
 }
 
 export default function Input(props: Props) {
-    const { placeholder = '', size = 'm', type = 'default', onChange } = props;
+    const {
+        value,
+        placeholder = '',
+        size = 'm',
+        type = 'default',
+        onChange
+    } = props;
     return (
         <div className="input-container">
             <input
@@ -20,6 +27,7 @@ export default function Input(props: Props) {
                 }
                 placeholder={placeholder}
                 onChange={(e) => onChange(e.target.value)}
+                value={value}
             />
         </div>
     );

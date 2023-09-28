@@ -1,10 +1,12 @@
 export interface Task {
     title: string;
+    category: Category;
+    isDragging?: boolean;
 }
 
-export interface GroupTasks {
-    [title: string]: Task[];
-}
+export type FilteredTasks = Record<Category, Task[]>;
+
+export type Category = 'ToDo' | 'InProgress' | 'Done';
 
 export type ButtonsType = 'default' | 'fill';
 

@@ -1,42 +1,62 @@
-import React, { useState } from 'react';
+import React, { DragEventHandler, useState } from 'react';
 import { TaskPlate } from '../TaskPlate';
 import { Button } from '../Button';
 import './KanbanColumn.css';
-import { Task } from '../../types';
+import { Category, Task } from '../../types';
 import { Dialog } from '../DIalog';
 import { Input } from '../Input';
 
 interface Props {
-    title: string;
+    category: Category;
     tasks: Task[];
     onAddTask: (newTask: Task) => void;
+    className: string;
+    onDragStart: (title: string) => void;
+    onDragOver: (columnTitle: Category) => void;
+    // onDragEnd: () => void;
 }
 
 export default function KanbanColumn(props: Props) {
-    const { title, tasks, onAddTask } = props;
-    const [isDialogActive, isDialogActiveSet] = useState(false);
-    const [newTaskTitle, newTaskTitleSet] = useState('');
+    const {
+        category,
+        tasks,
+        onAddTask,
+        className,
+        onDragStart,
+        onDragOver
+        // onDragEnd
+    } = props;
+    const [isDialogActive, setIsDialogActive] = useState(false);
+    const [newTaskTitle, setNewTaskTitle] = useState('');
 
     const addTaskHandle = () => {
         onAddTask({
-            title: newTaskTitle
+            title: newTaskTitle,
+            category
         });
+        setNewTaskTitle('');
     };
 
     const openDialogHandle = () => {
-        isDialogActiveSet(true);
+        setIsDialogActive(true);
     };
     const closeDialogHandle = () => {
-        isDialogActiveSet(false);
+        setIsDialogActive(false);
     };
     const changeTitleHandle = (title: string) => {
-        newTaskTitleSet(title);
+        setNewTaskTitle(title);
+    };
+    const dragStartHandler = (title: string) => {
+        onDragStart(title);
+    };
+    const dragOverHandler: DragEventHandler<HTMLElement> = () => {
+        onDragOver(category);
     };
 
     return (
-        <div className="column">
+        <div className={`column ${className}`} onDragOver={dragOverHandler}>
             <div className="header">
-                <h2 className="title">{title}</h2>
+                <h2 className="title">{category}</h2>
                 <Button
                     title={'New Task'}
                     onClick={openDialogHandle}
@@ -46,17 +66,22 @@ export default function KanbanColumn(props: Props) {
             <div className="tasks">
                 {tasks.map((task, index) => {
                     return (
-                        <TaskPlate title={task.title} key={index}></TaskPlate>
+                        <TaskPlate
+                            task={task}
+                            key={index}
+                            onDragStart={dragStartHandler}
+                        ></TaskPlate>
                     );
                 })}
             </div>
             <Dialog
-                title={'Create task ' + title}
+                title={'Create task ' + category}
                 onConfirm={addTaskHandle}
                 onClose={closeDialogHandle}
                 className={isDialogActive ? 'active' : ''}
             >
                 <Input
+                    value={newTaskTitle}
                     placeholder="Title"
                     size="m"
                     type="fill"
